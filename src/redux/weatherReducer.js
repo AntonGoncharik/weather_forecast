@@ -1,3 +1,5 @@
+import {getIdLocationAPI} from "../api/api";
+
 const SET_LOCATION = 'SET_LOCATION';
 const SET_BEFORE_LOCATION = 'SET_BEFORE_LOCATION';
 const SET_WEATHER_FORECAST = 'SET_WEATHER_FORECAST';
@@ -7,14 +9,14 @@ const initialState = {
         {
             title: "London",
             location_type: "City",
-            id: 44418,
+            woeid: 44418,
             latt_long: "51.506321,-0.12714"
         }
     ],
     location: {
         title: "London",
         location_type: "City",
-        id: 44418,
+        woeid: 44418,
         latt_long: "51.506321,-0.12714"
     },
     weatherForecast: [
@@ -43,7 +45,7 @@ export const weatherReducer = (state = initialState, action) => {
             return {state};
             break;
         case SET_BEFORE_LOCATION:
-            return {state};
+            return {...state, beforeLocations: action.locationsData};
             break;
         case SET_WEATHER_FORECAST:
             return {state};
@@ -56,16 +58,23 @@ export const weatherReducer = (state = initialState, action) => {
 const setLocationAC = () => {
     return {}
 };
-const setBeforeLocationAC = () => {
-    return {}
+const setBeforeLocationAC = (locationsData) => {
+    return {type: 'SET_BEFORE_LOCATION', locationsData}
 };
 const setWeatherForecastAC = () => {
     return {}
 };
 
-export const getLocation = () => {
-    return (dispatch) => {
+export const getLocation = (locationName) => {
+    return async (dispatch) => {
+        try {
+            const result = await getIdLocationAPI(locationName);
+            if (result.status === 200) {
+                dispatch(setBeforeLocationAC(result.data));
+            }
+        } catch (e) {
 
+        }
     }
 };
 export const getWeatherForecast = () => {

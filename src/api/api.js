@@ -4,8 +4,8 @@ const instance = axios.create({
     baseURL: 'https://www.metaweather.com/api/location/'
 });
 
-export const getIdLocationAPI = (location) => {
-    return instance.get(`?query=${location}`)
+export const getIdLocationAPI = (locationName) => {
+    return instance.get(`search/?query=${locationName}`)
 };
 
 export const getWeatherForecastAPI = (id) => {
