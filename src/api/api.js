@@ -9,5 +9,5 @@ export const getIdLocationAPI = (locationName) => {
 };
 
 export const getWeatherForecastAPI = (id) => {
-    return instance.get(id)
+    return instance.get(`${id}`)
 };

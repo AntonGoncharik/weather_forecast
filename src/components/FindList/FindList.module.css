@@ -1,0 +1,11 @@
+.list {
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+    cursor: pointer;
+    border: red solid 1px;
+}
+
+.item:hover {
+    font-weight: bold;
+}

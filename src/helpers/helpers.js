@@ -1,0 +1,1 @@
+export const roundUp = num => num.toFixed(1);
