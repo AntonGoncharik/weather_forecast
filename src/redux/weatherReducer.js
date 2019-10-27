@@ -14,10 +14,10 @@ const initialState = {
         }
     ],
     location: {
-        title: '',
-        location_type: '',
-        woeid: '',
-        latt_long: ''
+        title: 'Minsk',
+        location_type: 'City',
+        woeid: 834463,
+        latt_long: '53.90255,27.563101'
     },
     weatherForecast: [
         {

@@ -1,0 +1,10 @@
+.blockFindLocation {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.blockFindList {
+    position: absolute;
+    top: 40px;
+}

@@ -1,23 +1,14 @@
-import React, {useState} from 'react';
-import {connect} from "react-redux";
-import {getLocationAndWeatherForecast} from "../../redux/weatherReducer";
-import Preloader from "../Preloader/Preloader";
+import React from 'react';
 
 const Input = (props) => {
-    const [city, changeCity] = useState('');
-
-    const getLocationAndWeatherForecast = (e) => {
-        changeCity(e.currentTarget.value);
-        props.getLocationAndWeatherForecast(city);
-    };
-
     return (
         <div>
-            {/*<Preloader/>*/}
-            <input value={city}
-                   onChange={(e) => getLocationAndWeatherForecast(e)}/>
+            <input value={props.city}
+                   onChange={(e) => props.handleGetLocationAndWeatherForecast(e.currentTarget.value)}
+                   onFocus={(e) => props.handleChangeShowFindList(1)}
+                   onBlur={(e) => props.handleChangeShowFindList(0)}/>
         </div>
     )
 };
 
-export default connect(null, {getLocationAndWeatherForecast})(Input);
+export default Input;

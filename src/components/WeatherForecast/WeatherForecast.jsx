@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Input from "../Input/Input";
 import {connect} from "react-redux";
 import style from './WeatherForecast.module.css';
 import c from './../../resources/svg/c.svg';
@@ -12,8 +11,10 @@ import s from './../../resources/svg/s.svg';
 import sl from './../../resources/svg/sl.svg';
 import sn from './../../resources/svg/sn.svg';
 import t from './../../resources/svg/t.svg';
-import {roundUp} from "../../helpers/helpers";
-import FindList from "../FindList/FindList";
+import prev from './../../resources/png/prev.png';
+import next from './../../resources/png/next.png';
+import FindLocation from "../FindLocation/FindLocation";
+import InformWeather from "../InformWeather/InformWeather";
 
 const WeatherForecast = (props) => {
     const [day, setDay] = useState(0);
@@ -41,30 +42,24 @@ const WeatherForecast = (props) => {
 
     return (
         <div>
-            <Input/>
-            <FindList/>
-            <button onClick={() => {
-                changeDay(0)
-            }}>prev
-            </button>
-            <button onClick={() => {
-                changeDay(1)
-            }}>next
-            </button>
-            {props.weatherForecast[day].weather_state_abbr && <div className={style.dayImg}><img
-                src={accordanceImgWithWeather.find(item => item.abbr === props.weatherForecast[day].weather_state_abbr).img}/>
-            </div>}
-            <div>{props.weatherForecast[day].applicable_date}</div>
-            <div>{props.weatherForecast[day].weather_state_name}</div>
-            <div>wind: {props.weatherForecast[day].wind_direction_compass}</div>
-            <div>temp: {roundUp(props.weatherForecast[day].the_temp)}</div>
-            <div>min temp: {roundUp(props.weatherForecast[day].min_temp)}</div>
-            <div>max temp: {roundUp(props.weatherForecast[day].max_temp)}</div>
-            <div>wind speed: {roundUp(props.weatherForecast[day].wind_speed)}</div>
-            <div>air pressure: {roundUp(props.weatherForecast[day].air_pressure)}</div>
-            <div>humidity: {roundUp(props.weatherForecast[day].humidity)}</div>
-            <div>visibility: {roundUp(props.weatherForecast[day].visibility)}</div>
-            <div>predictability: {roundUp(props.weatherForecast[day].predictability)}</div>
+            <FindLocation/>
+            <div className={style.blockWeather}>
+                <div className={style.button}
+                     onClick={() => {
+                         changeDay(0)
+                     }}>
+                    <img src={prev}/>
+                </div>
+                <InformWeather day={day}
+                               accordanceImgWithWeather={accordanceImgWithWeather}
+                               weatherForecast={props.weatherForecast}/>
+                <div className={style.button}
+                     onClick={() => {
+                         changeDay(1)
+                     }}>
+                    <img src={next}/>
+                </div>
+            </div>
         </div>
     )
 };

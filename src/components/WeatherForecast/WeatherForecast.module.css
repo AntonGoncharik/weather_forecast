@@ -1,3 +1,29 @@
 .dayImg img {
-    width: 60px;
+    width: 150px;
+}
+
+.blockNameValue {
+    display: flex;
+    justify-content: center;
+}
+
+.blockName {
+    border: red 1px solid;
+}
+
+.blockValue {
+    border: green 1px solid;
+}
+
+.button img {
+    width: 200px;
+}
+
+.button:active {
+    transform: translateY(2px)
+}
+
+.blockWeather {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }

@@ -1,11 +1,13 @@
 .list {
+    border: red 1px solid;
     width: 200px;
-    height: 200px;
+    height: 300px;
+    margin: 0 auto;
     overflow: auto;
+    background-color: #e6efff;
     cursor: pointer;
-    border: red solid 1px;
 }
 
 .item:hover {
-    font-weight: bold;
+    background-color: #d9e6fc;
 }
