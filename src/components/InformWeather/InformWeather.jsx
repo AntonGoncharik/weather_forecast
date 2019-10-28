@@ -5,8 +5,10 @@ import {roundUp} from "../../helpers/helpers";
 const InformWeather = (props) => {
     return (
         <div>
-            {props.weatherForecast[props.day].weather_state_abbr && <div className={style.dayImg}><img
-                src={props.accordanceImgWithWeather.find(item => item.abbr === props.weatherForecast[props.day].weather_state_abbr).img}/>
+            {props.weatherForecast[props.day].weather_state_abbr &&
+            <div className={style.dayImg}>
+                <img src={props.accordanceImgWithWeather.find(item =>
+                    item.abbr === props.weatherForecast[props.day].weather_state_abbr).img}/>
             </div>}
             <div>{props.weatherForecast[props.day].applicable_date}</div>
             <div>{props.weatherForecast[props.day].weather_state_name}</div>

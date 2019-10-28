@@ -12,7 +12,7 @@ const FindLocation = (props) => {
 
     const handleGetLocationAndWeatherForecast = (locationName) => {
         changeCity(locationName);
-        props.getLocationAndWeatherForecast(city);
+        props.getLocationAndWeatherForecast(locationName);
     };
 
     const handleChangeShowFindList = (determination) => {
@@ -28,8 +28,10 @@ const FindLocation = (props) => {
             <Input handleGetLocationAndWeatherForecast={handleGetLocationAndWeatherForecast}
                    city={city}
                    handleChangeShowFindList={handleChangeShowFindList}/>
-            {showFindList && <div className={style.blockFindList}>
+            {showFindList &&
+            <div className={style.blockFindList}>
                 <FindList beforeLocations={props.beforeLocations}
+                          handleChangeShowFindList={handleChangeShowFindList}
                           handleGetLocationAndWeatherForecast={handleGetLocationAndWeatherForecast}/>
             </div>}
         </div>

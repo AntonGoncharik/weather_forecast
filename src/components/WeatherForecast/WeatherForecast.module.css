@@ -4,15 +4,22 @@
 
 .blockNameValue {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 5px;
 }
 
 .blockName {
-    border: red 1px solid;
+    border: white 2px solid;
+    background-color: #77add1;
+    color: white;
+    width: 120px;
 }
 
 .blockValue {
-    border: green 1px solid;
+    border: white 2px solid;
+    background-color: #abddff;
+    color: white;
+    width: 70px;
 }
 
 .button img {
