@@ -4,6 +4,7 @@ const Input = (props) => {
     return (
         <div>
             <input value={props.city}
+                   placeholder={`please, enter city`}
                    onChange={e => props.handleGetLocationAndWeatherForecast(e.currentTarget.value)}
                    onFocus={e => props.handleChangeShowFindList(1)}/>
         </div>

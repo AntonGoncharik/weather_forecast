@@ -1,12 +1,12 @@
 .list {
-    width: 200px;
-    height: 300px;
+    width: 180px;
+    max-height: 200px;
     margin: 0 auto;
     overflow: auto;
-    background-color: #e6efff;
+    background-color: #f6c358;
     cursor: pointer;
 }
 
 .item:hover {
-    background-color: #d9e6fc;
+    background-color: #ffba29;
 }

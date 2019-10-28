@@ -4,7 +4,7 @@ import {roundUp} from "../../helpers/helpers";
 
 const InformWeather = (props) => {
     return (
-        <div>
+        <div className={style.blockWeatherCenter}>
             {props.weatherForecast[props.day].weather_state_abbr &&
             <div className={style.dayImg}>
                 <img src={props.accordanceImgWithWeather.find(item =>
