@@ -15,6 +15,7 @@ import prev from './../../resources/png/prev.png';
 import next from './../../resources/png/next.png';
 import FindLocation from "../FindLocation/FindLocation";
 import InformWeather from "../InformWeather/InformWeather";
+import Preloader from "../Preloader/Preloader";
 
 const WeatherForecast = (props) => {
     const [day, setDay] = useState(0);
@@ -43,7 +44,7 @@ const WeatherForecast = (props) => {
     return (
         <div>
             <FindLocation/>
-            <div className={style.blockWeather}>
+            {props.isFetching && <Preloader/> || <div className={style.blockWeather}>
                 <div className={style.button}
                      onClick={() => {
                          changeDay(0)
@@ -59,14 +60,15 @@ const WeatherForecast = (props) => {
                      }}>
                     <img src={next}/>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 };
 
 const mapStateToProps = (state) => {
     return {
-        weatherForecast: state.weather.weatherForecast
+        weatherForecast: state.weather.weatherForecast,
+        isFetching: state.weather.isFetching
     }
 };
 

@@ -10,22 +10,24 @@
 
 .blockName {
     border: white 3px solid;
+    margin: 2px;
     background-color: #80a3b5;
     color: white;
-    width: 120px;
-    box-shadow: 4px 4px 0px 0px #80a3b5;
+    width: 250px;
+    box-shadow: 4px 4px 0px 0px #b1c8d3;
 }
 
 .blockValue {
     border: white 3px solid;
+    margin: 2px;
     background-color: #83d4ed;
     color: white;
-    width: 70px;
-    box-shadow: 4px 4px 0px 0px #80a3b5;
+    width: 120px;
+    box-shadow: 4px 4px 0px 0px #b3ddeb;
 }
 
 .button img {
-    width: 200px;
+    width: 150px;
 }
 
 .button:active {
@@ -35,9 +37,11 @@
 .blockWeather {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
 }
 
 .blockWeatherCenter {
     border: white solid 6px;
     margin-top: 6px;
+    padding: 30px;
 }

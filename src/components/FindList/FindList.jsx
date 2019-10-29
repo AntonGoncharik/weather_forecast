@@ -3,7 +3,7 @@ import style from './FindList.module.css';
 
 const FindList = (props) => {
     const handleSelectCity = (locationName) => {
-        props.handleGetLocationAndWeatherForecast(locationName);
+        props.handleChangeCity(locationName);
         props.handleChangeShowFindList(0);
     };
 

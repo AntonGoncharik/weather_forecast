@@ -3,8 +3,10 @@ import {getIdLocationAPI, getWeatherForecastAPI} from "../api/api";
 const SET_LOCATION = 'SET_LOCATION';
 const SET_BEFORE_LOCATION = 'SET_BEFORE_LOCATION';
 const SET_WEATHER_FORECAST = 'SET_WEATHER_FORECAST';
+const SET_FETCHING_DATA = 'SET_FETCHING_DATA';
 
 const initialState = {
+    isFetching: false,
     beforeLocations: [
         {
             title: '',
@@ -50,6 +52,9 @@ export const weatherReducer = (state = initialState, action) => {
         case SET_WEATHER_FORECAST:
             return {...state, weatherForecast: action.weatherForecast};
             break;
+        case SET_FETCHING_DATA:
+            return {...state, isFetching: action.isFetching};
+            break;
         default:
             return state;
     }
@@ -64,10 +69,14 @@ const setBeforeLocationAC = (locationsData) => {
 const setWeatherForecastAC = (weatherForecast) => {
     return {type: 'SET_WEATHER_FORECAST', weatherForecast}
 };
+const setFetchingDataAC = (isFetching) => {
+    return {type: 'SET_FETCHING_DATA', isFetching}
+};
 
 export const getLocationAndWeatherForecast = (locationName) => {
     return async (dispatch) => {
         try {
+            dispatch(setFetchingDataAC(true));
             let result = await getIdLocationAPI(locationName);
             if (result.status === 200) {
                 dispatch(setBeforeLocationAC(result.data));
@@ -79,6 +88,7 @@ export const getLocationAndWeatherForecast = (locationName) => {
                     }
                 }
             }
+            dispatch(setFetchingDataAC(false));
         } catch (e) {
 
         }
