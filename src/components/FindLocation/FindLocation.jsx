@@ -47,5 +47,7 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {getLocationAndWeatherForecast})(FindLocation);
+export default connect(mapStateToProps,
+    {getLocationAndWeatherForecast}
+)(FindLocation);
 

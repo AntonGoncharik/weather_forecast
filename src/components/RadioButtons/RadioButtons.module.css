@@ -1,0 +1,8 @@
+.radio {
+    display: flex;
+    justify-content: center;
+}
+
+.radio div {
+    margin: 15px;
+}

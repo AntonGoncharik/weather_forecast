@@ -1,5 +1,5 @@
 .dayImg img {
-    width: 150px;
+    width: 100px;
 }
 
 .blockNameValue {
@@ -15,6 +15,7 @@
     color: white;
     width: 250px;
     box-shadow: 4px 4px 0px 0px #b1c8d3;
+    font-size: 24px;
 }
 
 .blockValue {
@@ -24,9 +25,11 @@
     color: white;
     width: 120px;
     box-shadow: 4px 4px 0px 0px #b3ddeb;
+    font-size: 24px;
 }
 
 .button img {
+    cursor: pointer;
     width: 150px;
 }
 
@@ -44,4 +47,26 @@
     border: white solid 6px;
     margin-top: 6px;
     padding: 30px;
+}
+
+.findLocationButtonChart {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 50px;
+    color: white;
+    font-family: 'Calibri';
+}
+
+.buttonChart {
+    border: white 3px solid;
+    margin-left: 4px;
+    background-color: #83d4ed;
+    color: white;
+    width: 250px;
+    box-shadow: 4px 4px 0px 0px #b3ddeb;
+    font-size: 24px;
+    cursor: pointer;
 }

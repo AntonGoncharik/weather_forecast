@@ -16,9 +16,12 @@ import next from './../../resources/png/next.png';
 import FindLocation from "../FindLocation/FindLocation";
 import InformWeather from "../InformWeather/InformWeather";
 import Preloader from "../Preloader/Preloader";
+import Chart from "../Chart/Chart";
 
 const WeatherForecast = (props) => {
     const [day, setDay] = useState(0);
+
+    const [showChart, changeShowChart] = useState(false);
 
     const changeDay = (determination) => {
         if (determination === 1 && day < 5) {
@@ -26,6 +29,10 @@ const WeatherForecast = (props) => {
         } else if (determination === 0 && day > 0) {
             setDay(day - 1);
         }
+    };
+
+    const handleChangeShowChart = () => {
+        changeShowChart(!showChart);
     };
 
     const accordanceImgWithWeather = [
@@ -43,8 +50,15 @@ const WeatherForecast = (props) => {
 
     return (
         <div>
-            <FindLocation/>
-            {props.isFetching && <Preloader/> || <div className={style.blockWeather}>
+            <div className={style.title}>
+                WEATHER FORECAST
+            </div>
+            <div className={style.findLocationButtonChart}>
+                <FindLocation/>
+                <div className={style.buttonChart}
+                     onClick={handleChangeShowChart}>chart</div>
+            </div>
+            {props.isFetching && <Preloader/> || showChart && <Chart/> || <div className={style.blockWeather}>
                 <div className={style.button}
                      onClick={() => {
                          changeDay(0)
@@ -72,4 +86,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, null)(WeatherForecast);
+export default connect(mapStateToProps,
+    null
+)(WeatherForecast);
