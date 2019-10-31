@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Bar} from "react-chartjs-2";
 import {connect} from "react-redux";
+import {Bar} from "react-chartjs-2";
 import RadioButtons from "../RadioButtons/RadioButtons";
 
 const options = {

@@ -1,6 +1,6 @@
 import React from 'react';
-import style from "../WeatherForecast/WeatherForecast.module.css";
 import {roundUp} from "../../helpers/helpers";
+import style from "./InformWeather.module.css";
 
 const InformWeather = (props) => {
     return (

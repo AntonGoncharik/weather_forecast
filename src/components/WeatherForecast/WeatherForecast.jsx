@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-import style from './WeatherForecast.module.css';
+import FindLocation from "../FindLocation/FindLocation";
+import InformWeather from "../InformWeather/InformWeather";
+import Preloader from "../Preloader/Preloader";
+import Chart from "../Chart/Chart";
 import c from './../../resources/svg/c.svg';
 import h from './../../resources/svg/h.svg';
 import hc from './../../resources/svg/hc.svg';
@@ -13,10 +16,7 @@ import sn from './../../resources/svg/sn.svg';
 import t from './../../resources/svg/t.svg';
 import prev from './../../resources/png/prev.png';
 import next from './../../resources/png/next.png';
-import FindLocation from "../FindLocation/FindLocation";
-import InformWeather from "../InformWeather/InformWeather";
-import Preloader from "../Preloader/Preloader";
-import Chart from "../Chart/Chart";
+import style from './WeatherForecast.module.css';
 
 const WeatherForecast = (props) => {
     const [day, setDay] = useState(0);
@@ -56,7 +56,8 @@ const WeatherForecast = (props) => {
             <div className={style.findLocationButtonChart}>
                 <FindLocation/>
                 <div className={style.buttonChart}
-                     onClick={handleChangeShowChart}>chart</div>
+                     onClick={handleChangeShowChart}>chart
+                </div>
             </div>
             {props.isFetching && <Preloader/> || showChart && <Chart/> || <div className={style.blockWeather}>
                 <div className={style.button}

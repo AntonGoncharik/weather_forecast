@@ -10,6 +10,6 @@ const Preloader = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default Preloader;
