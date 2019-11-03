@@ -9,8 +9,9 @@ const FindList = (props) => {
 
     return (
         <div className={style.list}>
-            {props.beforeLocations.map(item =>
-                <div className={style.item}
+            {props.foundLocations.map(item =>
+                <div key={item.woeid}
+                     className={style.item}
                      onClick={(e) => handleSelectCity(e.currentTarget.innerText)}>
                     {item.title}
                 </div>)}

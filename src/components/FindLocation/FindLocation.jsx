@@ -33,7 +33,7 @@ const FindLocation = (props) => {
                    handleChangeShowFindList={handleChangeShowFindList}/>
             {showFindList &&
             <div className={style.blockFindList}>
-                <FindList beforeLocations={props.beforeLocations}
+                <FindList foundLocations={props.foundLocations}
                           handleChangeShowFindList={handleChangeShowFindList}
                           handleChangeCity={handleChangeCity}/>
             </div>}
@@ -43,7 +43,7 @@ const FindLocation = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        beforeLocations: state.weather.beforeLocations
+        foundLocations: state.weather.foundLocations
     }
 };
 
