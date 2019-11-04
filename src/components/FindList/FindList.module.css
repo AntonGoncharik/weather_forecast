@@ -3,11 +3,11 @@
     max-height: 200px;
     margin: 0 auto;
     overflow: auto;
-    background-color: #f6c358;
+    background-color: #83d4ed;
     cursor: pointer;
     font-size: 24px;
 }
 
 .item:hover {
-    background-color: #ffba29;
+    background-color: #80a3b5;
 }
